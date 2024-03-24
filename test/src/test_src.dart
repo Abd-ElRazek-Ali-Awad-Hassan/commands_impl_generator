@@ -66,8 +66,12 @@ abstract class GenerateMixin {
   '    required Future<void> Function(ReturnType) saveOnCache,\n'
   '  }) async {\n'
   '    return await _\$mapExceptionToFailureOn(callback: () async {\n'
-  '      final value = await getFromRemote();\n'
-  '      return Right(await saveOnCache(value));\n'
+  '      return _\$executeCommandIfHasInternetAccess(\n'
+  '        command: () async {\n'
+  '          final value = await getFromRemote();\n'
+  '          return Right(await saveOnCache(value));\n'
+  '        },\n'
+  '      );\n'
   '    });\n'
   '  }\n',
   contains: true,
@@ -107,8 +111,12 @@ abstract class GenerateCommandsImpl {
   '  }) async {\n'
   '    return await GenerateCommandsWithCustomExceptionMappingImpl\n'
   '        .mapExceptionToFailureOn(callback: () async {\n'
-  '      final value = await getFromRemote();\n'
-  '      return Right(await saveOnCache(value));\n'
+  '      return _\$executeCommandIfHasInternetAccess(\n'
+  '        command: () async {\n'
+  '          final value = await getFromRemote();\n'
+  '          return Right(await saveOnCache(value));\n'
+  '        },\n'
+  '      );\n'
   '    });\n'
   '  }\n',
   contains: true,

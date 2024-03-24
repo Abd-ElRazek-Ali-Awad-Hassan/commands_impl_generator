@@ -63,8 +63,12 @@ class CommandsImplGenerator
         '}) async {\n'
         '  return await ${_getMapExceptionToFailureReferenceFor(element)}'
         '  (callback: () async {\n'
-        '    final value = await getFromRemote();\n'
-        '    return Right(await saveOnCache(value));\n'
+        '    return _\$executeCommandIfHasInternetAccess(\n'
+        '      command: () async {\n'
+        '        final value = await getFromRemote();\n'
+        '        return Right(await saveOnCache(value));\n'
+        '      },\n'
+        '    );\n'
         '  });\n'
         '}\n';
   }
