@@ -1,0 +1,11 @@
+(Done) ensure annotation set before generating.
+(Done) when annotate a function or, variable. throws "'GenerateForCommands()' only support classes".
+(Done) generate mixin with name _$CommandsImplMixin.
+(Done) ensure generated code has (import 'package:internet_connection_checker/internet_connection_checker.dart');
+(Done) ensure generated code has _$setInternetConnectionChecker.
+(Done) generate imports.
+- validate method annotated with Command must return 'void', 'Future<void>', or 'FutureOr<void>'.
+(Done) generate connection checking code.
+(Done) generate exception to failure mapping.
+(Done) generate methods that are prefixed with _$ for each method annotated with @Command().
+(Done) generate Command(withCaching: true) impl.
